@@ -66,11 +66,11 @@ namespace Parser
                     count++;
                 j++;
             }
-            var value = str.Substring(i + 1, j - 2 - i);
+            var value = str.Substring(i + 1, j - 2 - i).Trim();
             if (obj.Type != ParserObject.ParserObjectType.Simple)
                 obj.Value = Split(value);
             else
-                obj.Value = IsNumber(value) ? Int32.Parse(value) : (object)value;
+                obj.Value = value;
             
             return obj;
             
@@ -78,7 +78,6 @@ namespace Parser
         }
         public override List<ParserObject> Split(string str)
         {
-            //string str = obj.Value.ToString();
             var list = new List<ParserObject>();
             while (str.Length != 0)
             {
@@ -107,7 +106,7 @@ namespace Parser
                 if (i == str.Length)
                     break;
                 i++;
-                str = str.Substring(i, str.Length - i);
+                str = str.Substring(i, str.Length - i).Trim();
             }
             return list;
         }

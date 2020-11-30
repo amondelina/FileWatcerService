@@ -14,7 +14,5 @@ namespace FileWatcherService
         public string SourcePath { get; set; }
         public Logger TargetLogger { get; set; }
         public CompressionLevel CompressionLevel { get; set; } = CompressionLevel.Optimal;
-
-       
     }
 }

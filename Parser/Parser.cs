@@ -13,7 +13,7 @@ namespace Parser
             this.path = path;
         }
         public abstract T Get<T>() where T : new();
-         protected T DeserializeObject<T>(List<ParserObject> objects) where T: new()
+         public T DeserializeObject<T>(List<ParserObject> objects) where T: new()
         {
             T instance = (T)Activator.CreateInstance(typeof(T));
 
@@ -21,18 +21,14 @@ namespace Parser
             {
                 var property = typeof(T).GetProperty(obj.Name);
                 if(obj.Type == ParserObject.ParserObjectType.Simple)
-                {
-                    var value = obj.Value.ToString();
-                    if (IsNumber(value))
-                        property.SetValue(instance, Int32.Parse(value));
-                    else
-                        property.SetValue(instance, value);
+                { 
+                        property.SetValue(instance, Convert.ChangeType(obj.Value, property.PropertyType));
                 }
                 else
                 {
-                    var type = Type.GetType(obj.Name, true, true);
+                    var type = property.PropertyType;
                     var method = typeof(Parser).GetMethod(nameof(DeserializeObject));
-                    property.SetValue(instance, method.MakeGenericMethod(type).Invoke(this,parameters: new object[] { Split(obj.Value.ToString()) }));
+                    property.SetValue(instance, method.MakeGenericMethod(type).Invoke(this,parameters: new object[] { obj.Value }));
                 }
             }
             return instance;

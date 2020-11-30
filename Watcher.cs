@@ -11,7 +11,6 @@ namespace FileWatcherService
     class Watcher
     {
         public Logger Logger;
-        //Logger targetLogger;
         Archiver archiver;
         Crypter crypter;
         FileSystemWatcher watcher;
@@ -20,17 +19,17 @@ namespace FileWatcherService
         public Watcher()
         {
 
-            
-            archiver = new Archiver(OptionsManager.GetOptions<ArchiverOptions>() as ArchiverOptions);
             crypter = new Crypter(OptionsManager.GetOptions<CrypterOptions>() as CrypterOptions);
+            archiver = new Archiver(OptionsManager.GetOptions<ArchiverOptions>() as ArchiverOptions);
             watcher = new FileSystemWatcher(OptionsManager.Options.SourcePath, "*.txt");
-                watcher.Created += OnChanged;
-                watcher.Changed += OnChanged;
-                watcher.Renamed += OnChanged;
-                watcher.Deleted += OnDeleted;
 
-                watcher.EnableRaisingEvents = true;
-                watcher.IncludeSubdirectories = true;
+            watcher.Created += OnChanged;
+            watcher.Changed += OnChanged;
+            watcher.Renamed += OnChanged;
+            watcher.Deleted += OnDeleted;
+
+            watcher.EnableRaisingEvents = true;
+            watcher.IncludeSubdirectories = true;
 
             Logger = OptionsManager.Logger;
             archiver.Options.TargetLogger = Logger;
@@ -46,10 +45,10 @@ namespace FileWatcherService
             xmlWatcher.Created += OnOptionsFileChanged;
             xmlWatcher.Changed += OnOptionsFileChanged;
             xmlWatcher.Deleted += OnOptionsFileChanged;
-            //OptionsManager.OptionsFileChanged += (sender, e) => { xmlWatcher.EnableRaisingEvents = OptionsManager.XML; }; 
-
-
-
+            if (OptionsManager.Options != OptionsManager.JSONOptions)
+                xmlWatcher.EnableRaisingEvents = true;
+            else
+                xmlWatcher.EnableRaisingEvents = false;
         }
         public void Start()
         {
@@ -62,15 +61,23 @@ namespace FileWatcherService
         public void Stop()
         {
             watcher.EnableRaisingEvents = false;
-            /*jsonWatcher.EnableRaisingEvents = false;
+            jsonWatcher.EnableRaisingEvents = false;
             xmlWatcher.EnableRaisingEvents = false;
             xmlWatcher.Dispose();
-            jsonWatcher.Dispose();*/
+            jsonWatcher.Dispose();
             watcher.Dispose();
         }
         void OnOptionsFileChanged(object o, FileSystemEventArgs e)
         {
-            OptionsManager.Update();
+            try
+            {
+                OptionsManager.Update();
+            }
+            catch(Exception)
+            {
+                Logger.RecordEntry("Что-то не так с файлами конфигурации");
+            }
+            
             if (OptionsManager.Options != OptionsManager.JSONOptions)
                 xmlWatcher.EnableRaisingEvents = true;
             else

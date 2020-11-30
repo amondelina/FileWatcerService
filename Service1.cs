@@ -20,7 +20,6 @@ namespace FileWatcherService
             InitializeComponent();
             AutoLog = true;
             CanStop = true;
-            //CanPauseAndContinue = true;
             watcher = new Watcher();
             logger = watcher.Logger;
            
@@ -28,7 +27,6 @@ namespace FileWatcherService
 
         protected override void OnStart(string[] args)
         {
-            //System.Diagnostics.Debugger.Launch();
             logger.RecordEntry("Cервис запущен");
             var thread = new Thread(new ThreadStart((watcher.Start)));
             thread.Start();

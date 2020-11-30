@@ -1,0 +1,12 @@
+D:\code\c#\FileWatcherService\bin\Debug\FileWatcherService.exe.config
+D:\code\c#\FileWatcherService\bin\Debug\FileWatcherService.exe
+D:\code\c#\FileWatcherService\bin\Debug\FileWatcherService.pdb
+D:\code\c#\FileWatcherService\obj\Debug\FileWatcherService.csprojAssemblyReference.cache
+D:\code\c#\FileWatcherService\obj\Debug\FileWatcherService.Service1.resources
+D:\code\c#\FileWatcherService\obj\Debug\FileWatcherService.csproj.GenerateResource.cache
+D:\code\c#\FileWatcherService\obj\Debug\FileWatcherService.csproj.CoreCompileInputs.cache
+D:\code\c#\FileWatcherService\obj\Debug\FileWatcherService.exe
+D:\code\c#\FileWatcherService\obj\Debug\FileWatcherService.pdb
+D:\code\c#\FileWatcherService\bin\Debug\Parser.dll
+D:\code\c#\FileWatcherService\bin\Debug\Parser.pdb
+D:\code\c#\FileWatcherService\obj\Debug\FileWatcherService.csproj.CopyComplete

@@ -43,21 +43,11 @@ namespace FileWatcherService
             get { return archivePath; }
             set
             {
-                ArchiverOptions.TargetPath = value;
-                archivePath = value;
+                
+                archivePath = FixDirName(value);
+                ArchiverOptions.TargetPath = archivePath;
             }
         }
-        string logPath;
-        public string LogPath
-        {
-            get { return logPath; }
-            set
-            {
-                LoggerOptions.Path = value;
-                logPath = value;
-            }
-        }
-        //public Logger Logger { get; set; }
         string path;
         public string Path
         {
@@ -67,7 +57,7 @@ namespace FileWatcherService
                 path = FixDirName(value);
                 TargetPath = System.IO.Path.Combine(path, "TargetDirectory");
                 SourcePath = System.IO.Path.Combine(path, "SourceDirectory");
-                LogPath = System.IO.Path.Combine(path, "Log.txt");
+                LoggerOptions.Path = System.IO.Path.Combine(path, "Log.txt");
             }
         }
         string FixDirName(string dir)
@@ -85,21 +75,28 @@ namespace FileWatcherService
             ArchiverOptions = new ArchiverOptions();
             LoggerOptions = new LoggerOptions();
             Path = AppDomain.CurrentDomain.BaseDirectory;
-          //  Logger = new Logger(LoggerOptions);
-            //CrypterOptions.TargetLogger = Logger;
-            //ArchiverOptions.TargetLogger = Logger;
-
         }
          virtual public void Load()
         {
-            //Logger.RecordEntry("Были установлены стандартные настройки");
         }
         protected void Copy(ETLOptions obj)
         {
-            if(obj.ConfigPath != null)
-                ConfigPath = obj.ConfigPath;
-            if(obj.Path != null)
-                Path = obj.Path;
+            Path = obj.Path;
+            TargetPath = obj.TargetPath;
+            SourcePath = obj.SourcePath;
+            ArchivePath = obj.ArchivePath;
+            Copy(CrypterOptions, obj.CrypterOptions);
+            Copy(ArchiverOptions, obj.ArchiverOptions);
+            Copy(LoggerOptions, obj.LoggerOptions);   
+        }
+        void Copy<T>(T obj1, T obj2)
+        {
+            foreach (var prop in typeof(T).GetProperties())
+            {
+                var prop2 = prop.GetValue(obj2);
+                if (prop2 != null)
+                    prop.SetValue(obj1, prop2);
+            }
         }
     }
 }

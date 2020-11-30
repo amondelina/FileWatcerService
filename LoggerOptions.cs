@@ -10,7 +10,9 @@ namespace FileWatcherService
     class LoggerOptions : Options
     {
         string path;
-        public string Path { get { return path; }
+        public string Path 
+        { 
+            get { return path; }
             set
             {
                 path = value;
@@ -20,6 +22,6 @@ namespace FileWatcherService
                 if (!File.Exists(path))
                     File.Create(path);
             }
-                }
+        }
     }
 }

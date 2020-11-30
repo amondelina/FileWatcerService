@@ -11,7 +11,6 @@ namespace FileWatcherService
     class Archiver
     {
         public ArchiverOptions Options { get; set; }
-        //Logger sourceLogger;
 
         public Archiver(ArchiverOptions options)
         {
@@ -35,17 +34,7 @@ namespace FileWatcherService
                 }
             }
             File.Delete(path);
-            return gzName;
-            //var zipName = path + ".zip";
-            //if (File.Exists(zipName))
-            //    File.Delete(zipName);
-            //var name = Path.GetFileName(path);
-            //using (var zip = ZipFile.Open(zipName, ZipArchiveMode.Create))
-            //    zip.CreateEntryFromFile(path, name);
-            //targetLogger.RecordEntry($"Файл {name} архивирован");
-            //File.Delete(path);
-            //return zipName;
-            
+            return gzName;         
         }
         public string Extract(string path)
         {
@@ -69,9 +58,5 @@ namespace FileWatcherService
             }
             return fullName;
         }
-        //string CreatePath(string name)
-        //{
-        //    return name.Replace(sou)
-        //}
     }
 }

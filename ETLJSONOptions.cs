@@ -18,7 +18,6 @@ namespace FileWatcherService
         override public void Load()
         {
             Copy(parser.Get<ETLOptions>());
-            //Logger.RecordEntry("Настройки загружены из файла .json");
         }
     }
 }

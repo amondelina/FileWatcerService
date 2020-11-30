@@ -32,7 +32,6 @@ namespace FileWatcherService
         
         static OptionsManager()
         {
-            System.Diagnostics.Debugger.Launch();
             var path = AppDomain.CurrentDomain.BaseDirectory;
             JSONPath = System.IO.Path.Combine(path, "appsettings.json");
             XMLPath = System.IO.Path.Combine(path, "config.xml");
@@ -57,7 +56,7 @@ namespace FileWatcherService
 
         static public void Update()
         {
-            System.Diagnostics.Debugger.Launch();
+            
             if (File.Exists(JSONPath))
             {
                 if (JSONOptions == null)
@@ -76,8 +75,6 @@ namespace FileWatcherService
                 Options = DefaultOptions;
             }
             Options.Load();
-                
-                    
         }
 
 

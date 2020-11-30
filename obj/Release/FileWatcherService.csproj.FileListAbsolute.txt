@@ -1,0 +1,9 @@
+D:\code\c#\FileWatcherService\bin\Release\FileWatcherService.exe.config
+D:\code\c#\FileWatcherService\bin\Release\FileWatcherService.exe
+D:\code\c#\FileWatcherService\bin\Release\FileWatcherService.pdb
+D:\code\c#\FileWatcherService\obj\Release\FileWatcherService.csprojAssemblyReference.cache
+D:\code\c#\FileWatcherService\obj\Release\FileWatcherService.Service1.resources
+D:\code\c#\FileWatcherService\obj\Release\FileWatcherService.csproj.GenerateResource.cache
+D:\code\c#\FileWatcherService\obj\Release\FileWatcherService.csproj.CoreCompileInputs.cache
+D:\code\c#\FileWatcherService\obj\Release\FileWatcherService.exe
+D:\code\c#\FileWatcherService\obj\Release\FileWatcherService.pdb

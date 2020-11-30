@@ -12,8 +12,6 @@ namespace FileWatcherService
     class Crypter
     {
         public CrypterOptions Options { get; set; }
-        //Logger sourceLogger;
-
         public Crypter(CrypterOptions options)
         {
             this.Options = options;
@@ -28,27 +26,6 @@ namespace FileWatcherService
             if (File.Exists(newPath))
                 File.Delete(newPath);
             File.Copy(path, newPath);
-
-            /*using(var aes = Aes.Create())
-            {
-                var encryptor = aes.CreateEncryptor(Options.Key, Options.Key);
-                using (var ms = new MemoryStream())
-                {
-                    using (var cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
-                    {
-                        using (var sw = new StreamWriter(cs))
-                        {
-                            using (var reader = File.OpenText(path))
-                            {
-                                sw.Write(reader.ReadToEnd());
-                                File.WriteAllBytes(newPath, ms.ToArray());
-                            }
-
-                        }
-                    }
-                    
-                }
-            }*/
             var text = File.ReadAllText(path);
             using(var aes = Aes.Create())
             {
@@ -74,7 +51,6 @@ namespace FileWatcherService
 
         public string Decrypt(string path)
         {
-            //var name = Path.Combine(Path.GetDirectoryName(path), Path.GetFileNameWithoutExtension(path));
             using (var aes = Aes.Create())
             {
                 aes.Key = Options.Key;
