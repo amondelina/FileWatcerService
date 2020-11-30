@@ -9,19 +9,19 @@ namespace FileWatcherService
 {
     class Logger
     {
-        string path;
-        public Logger(string path)
+        public LoggerOptions Options { get; set; }
+        public Logger(LoggerOptions options)
         {
-            var log = new FileInfo(path);
-            this.path = (log.FullName);
-            RecordEntry("Файл лога " + Path.GetFileName(path) + " был создан");
+          
+            Options = options;
+            RecordEntry($"Файл лога {Path.GetFileName(Options.Path)} создан");
 
         }
         public void RecordEntry(string entry)
         {
-            using (var writer = File.CreateText(path))
+            using (var writer = new StreamWriter(Options.Path, true))
             {
-                writer.WriteLine(entry + DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss"));
+                writer.WriteLine($"{entry} {DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss")}");
                 writer.Flush();
             }
         }

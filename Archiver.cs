@@ -3,30 +3,75 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO.Compression;
+using System.IO;
 
 namespace FileWatcherService
 {
     class Archiver
     {
-        string targetPath;
-        string sourcePath;
-        Logger targetLogger;
-        Logger sourceLogger;
+        public ArchiverOptions Options { get; set; }
+        //Logger sourceLogger;
 
-        public Archiver(Logger targetLogger, Logger sourceLogger, string targetPath = @"\TargetDirectory", string sourcePath = @"\SourceDirectory")
+        public Archiver(ArchiverOptions options)
         {
-            this.targetLogger = targetLogger;
-            this.sourceLogger = sourceLogger;
-            this.targetPath = targetPath;
-            this.sourcePath = sourcePath;
+            Options = options;
         }
         public string Archive(string path)
         {
-            return "";
+            var gzName = path + ".gz";
+            var name = Path.GetFileName(path);
+            if (File.Exists(gzName))
+                File.Delete(gzName);
+            using (var sourseStream = new FileStream(path, FileMode.Open))
+            {
+                using (var targetStream = File.Create(gzName) )
+                {
+                    using (var compressionStream = new GZipStream(targetStream, Options.CompressionLevel))
+                    {
+                        sourseStream.CopyTo(compressionStream);
+                        Options.TargetLogger.RecordEntry($"Файл {name} архивирован");
+                    }
+                }
+            }
+            File.Delete(path);
+            return gzName;
+            //var zipName = path + ".zip";
+            //if (File.Exists(zipName))
+            //    File.Delete(zipName);
+            //var name = Path.GetFileName(path);
+            //using (var zip = ZipFile.Open(zipName, ZipArchiveMode.Create))
+            //    zip.CreateEntryFromFile(path, name);
+            //targetLogger.RecordEntry($"Файл {name} архивирован");
+            //File.Delete(path);
+            //return zipName;
+            
         }
         public string Extract(string path)
         {
-            return "";
+            var name = Path.GetFileNameWithoutExtension(path);
+            var dir = Path.GetDirectoryName(path.Replace(Options.SourcePath, Options.TargetPath));
+            if (!Directory.Exists(dir))
+                Directory.CreateDirectory(dir);
+            var fullName = Path.Combine(dir, name);
+            if (File.Exists(fullName))
+                File.Delete(fullName);
+
+            using (var sourceStream = new FileStream(path, FileMode.Open))
+            {
+                using (var targetStream = File.Create(fullName))
+                {
+                    using (var decompressionStream = new GZipStream(sourceStream, CompressionMode.Decompress))
+                    {
+                        decompressionStream.CopyTo(targetStream);
+                    }
+                }
+            }
+            return fullName;
         }
+        //string CreatePath(string name)
+        //{
+        //    return name.Replace(sou)
+        //}
     }
 }

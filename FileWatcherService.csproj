@@ -36,6 +36,8 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,7 +49,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Archiver.cs" />
+    <Compile Include="ArchiverOptions.cs" />
     <Compile Include="Crypter.cs" />
+    <Compile Include="CrypterOptions.cs" />
+    <Compile Include="ETLJSONOptions.cs" />
+    <Compile Include="ETLOptions.cs" />
+    <Compile Include="ETLXMLOptions.cs" />
+    <Compile Include="LoggerOptions.cs" />
+    <Compile Include="Options.cs" />
+    <Compile Include="OptionsManager.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Watcher.cs" />
     <Compile Include="Installer1.cs">
       <SubType>Component</SubType>
@@ -67,11 +82,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Service1.resx">
       <DependentUpon>Service1.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Parser\Parser.csproj">
+      <Project>{d2478843-73fe-4abe-ab99-62f2269a7320}</Project>
+      <Name>Parser</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
