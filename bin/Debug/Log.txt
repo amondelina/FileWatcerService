@@ -1,0 +1,93 @@
+Файл лога Log.txt создан 14.12.2020 01:14:14
+Файл лога Log.txt создан 14.12.2020 08:42:06
+Файл лога Log.txt создан 14.12.2020 08:42:14
+Cервис запущен 14.12.2020 08:42:14
+Файл D:\code\c#\FileWatcherService\bin\Debug\SourceDirectory\Новый текстовый документ.txt был создан 14.12.2020 08:42:25
+Файл Новый текстовый документ.txt зашифрован 14.12.2020 08:42:26
+Файл Новый текстовый документ.txt архивирован 14.12.2020 08:42:26
+Файл Новый текстовый документ.txt расшифрован 14.12.2020 08:42:26
+Файл D:\code\c#\FileWatcherService\bin\Debug\SourceDirectory\hbo.txt был переименован 14.12.2020 08:42:26
+Файл hbo.txt зашифрован 14.12.2020 08:42:26
+Файл hbo.txt архивирован 14.12.2020 08:42:26
+Файл hbo.txt расшифрован 14.12.2020 08:42:26
+Файл D:\code\c#\FileWatcherService\bin\Debug\SourceDirectory\hbo.txt был удален 14.12.2020 08:42:59
+Файл D:\code\c#\FileWatcherService\bin\Debug\SourceDirectory\Contacts.xsd был создан 14.12.2020 08:43:31
+Файл Contacts.xsd зашифрован 14.12.2020 08:43:31
+Файл Contacts.xsd архивирован 14.12.2020 08:43:31
+Файл Contacts.xsd расшифрован 14.12.2020 08:43:31
+Файл D:\code\c#\FileWatcherService\bin\Debug\SourceDirectory\Contacts.xsd был изменен 14.12.2020 08:43:31
+Файл Contacts.xsd зашифрован 14.12.2020 08:43:31
+Файл Contacts.xsd архивирован 14.12.2020 08:43:31
+Файл Contacts.xsd расшифрован 14.12.2020 08:43:31
+Файл D:\code\c#\FileWatcherService\bin\Debug\SourceDirectory\cceqy.xml был создан 14.12.2020 08:43:41
+Файл cceqy.xml зашифрован 14.12.2020 08:43:41
+Файл cceqy.xml архивирован 14.12.2020 08:43:41
+Файл cceqy.xml расшифрован 14.12.2020 08:43:41
+Файл D:\code\c#\FileWatcherService\bin\Debug\SourceDirectory\cceqy.xml был изменен 14.12.2020 08:43:41
+Файл cceqy.xml зашифрован 14.12.2020 08:43:41
+Файл cceqy.xml архивирован 14.12.2020 08:43:41
+Файл cceqy.xml расшифрован 14.12.2020 08:43:41
+Файл D:\code\c#\FileWatcherService\bin\Debug\SourceDirectory\cceqy.xml был удален 14.12.2020 08:44:33
+Файл D:\code\c#\FileWatcherService\bin\Debug\SourceDirectory\Contacts.xsd был удален 14.12.2020 08:44:33
+Файл D:\code\c#\FileWatcherService\bin\Debug\SourceDirectory\Contacts.xsd был создан 14.12.2020 08:45:18
+Файл Contacts.xsd зашифрован 14.12.2020 08:45:18
+Файл Contacts.xsd архивирован 14.12.2020 08:45:18
+Файл Contacts.xsd расшифрован 14.12.2020 08:45:18
+Файл D:\code\c#\FileWatcherService\bin\Debug\SourceDirectory\Contacts.xsd был изменен 14.12.2020 08:45:18
+Файл Contacts.xsd зашифрован 14.12.2020 08:45:18
+Файл Contacts.xsd архивирован 14.12.2020 08:45:18
+Файл Contacts.xsd расшифрован 14.12.2020 08:45:18
+Файл D:\code\c#\FileWatcherService\bin\Debug\SourceDirectory\Contacts.xsd был удален 14.12.2020 08:46:40
+Файл D:\code\c#\FileWatcherService\bin\Debug\SourceDirectory\Contacts.xsd был создан 14.12.2020 08:46:55
+Файл Contacts.xsd зашифрован 14.12.2020 08:46:55
+Файл Contacts.xsd архивирован 14.12.2020 08:46:55
+Файл Contacts.xsd расшифрован 14.12.2020 08:46:55
+Файл D:\code\c#\FileWatcherService\bin\Debug\SourceDirectory\Contacts.xsd был изменен 14.12.2020 08:46:55
+Файл Contacts.xsd зашифрован 14.12.2020 08:46:55
+Файл Contacts.xsd архивирован 14.12.2020 08:46:55
+Файл Contacts.xsd расшифрован 14.12.2020 08:46:55
+Файл D:\code\c#\FileWatcherService\bin\Debug\SourceDirectory\pbbbao.xml был создан 14.12.2020 08:47:01
+Файл pbbbao.xml зашифрован 14.12.2020 08:47:01
+Файл pbbbao.xml архивирован 14.12.2020 08:47:01
+Файл pbbbao.xml расшифрован 14.12.2020 08:47:01
+Файл D:\code\c#\FileWatcherService\bin\Debug\SourceDirectory\pbbbao.xml был изменен 14.12.2020 08:47:01
+Файл pbbbao.xml зашифрован 14.12.2020 08:47:01
+Файл pbbbao.xml архивирован 14.12.2020 08:47:01
+Файл pbbbao.xml расшифрован 14.12.2020 08:47:01
+Файл D:\code\c#\FileWatcherService\bin\Debug\SourceDirectory\Contacts.xsd был удален 14.12.2020 08:47:56
+Файл D:\code\c#\FileWatcherService\bin\Debug\SourceDirectory\pbbbao.xml был удален 14.12.2020 08:47:56
+Файл D:\code\c#\FileWatcherService\bin\Debug\SourceDirectory\Contacts.xsd был создан 14.12.2020 08:48:31
+Файл Contacts.xsd зашифрован 14.12.2020 08:48:31
+Файл Contacts.xsd архивирован 14.12.2020 08:48:31
+Файл Contacts.xsd расшифрован 14.12.2020 08:48:31
+Файл D:\code\c#\FileWatcherService\bin\Debug\SourceDirectory\Contacts.xsd был изменен 14.12.2020 08:48:31
+Файл Contacts.xsd зашифрован 14.12.2020 08:48:31
+Файл Contacts.xsd архивирован 14.12.2020 08:48:31
+Файл Contacts.xsd расшифрован 14.12.2020 08:48:31
+Файл D:\code\c#\FileWatcherService\bin\Debug\SourceDirectory\eacifherhp.xml был создан 14.12.2020 08:48:37
+Файл eacifherhp.xml зашифрован 14.12.2020 08:48:37
+Файл eacifherhp.xml архивирован 14.12.2020 08:48:37
+Файл eacifherhp.xml расшифрован 14.12.2020 08:48:37
+Файл D:\code\c#\FileWatcherService\bin\Debug\SourceDirectory\eacifherhp.xml был изменен 14.12.2020 08:48:37
+Файл eacifherhp.xml зашифрован 14.12.2020 08:48:37
+Файл eacifherhp.xml архивирован 14.12.2020 08:48:37
+Файл eacifherhp.xml расшифрован 14.12.2020 08:48:37
+Файл D:\code\c#\FileWatcherService\bin\Debug\SourceDirectory\Contacts.xsd был удален 14.12.2020 08:59:19
+Файл D:\code\c#\FileWatcherService\bin\Debug\SourceDirectory\eacifherhp.xml был удален 14.12.2020 08:59:19
+Файл D:\code\c#\FileWatcherService\bin\Debug\SourceDirectory\Contacts.xsd был создан 14.12.2020 09:00:59
+Файл Contacts.xsd зашифрован 14.12.2020 09:00:59
+Файл Contacts.xsd архивирован 14.12.2020 09:00:59
+Файл Contacts.xsd расшифрован 14.12.2020 09:00:59
+Файл D:\code\c#\FileWatcherService\bin\Debug\SourceDirectory\Contacts.xsd был изменен 14.12.2020 09:00:59
+Файл Contacts.xsd зашифрован 14.12.2020 09:00:59
+Файл Contacts.xsd архивирован 14.12.2020 09:00:59
+Файл Contacts.xsd расшифрован 14.12.2020 09:00:59
+Файл D:\code\c#\FileWatcherService\bin\Debug\SourceDirectory\ouibmzi.xml был создан 14.12.2020 09:01:04
+Файл ouibmzi.xml зашифрован 14.12.2020 09:01:04
+Файл ouibmzi.xml архивирован 14.12.2020 09:01:04
+Файл ouibmzi.xml расшифрован 14.12.2020 09:01:04
+Файл D:\code\c#\FileWatcherService\bin\Debug\SourceDirectory\ouibmzi.xml был изменен 14.12.2020 09:01:04
+Файл ouibmzi.xml зашифрован 14.12.2020 09:01:04
+Файл ouibmzi.xml архивирован 14.12.2020 09:01:04
+Файл ouibmzi.xml расшифрован 14.12.2020 09:01:04
+Cервис остановлен 14.12.2020 09:17:56

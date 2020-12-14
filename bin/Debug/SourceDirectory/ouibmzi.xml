@@ -1,0 +1,56 @@
+<Contacts>
+    <EmailAddress>
+        <BusinessEntity>
+            <BusinessEntityID>
+                192
+            </BusinessEntityID>
+            <rowguid>
+                cdeed287-63bd-4d42-b15c-eb1d844bedd5
+            </rowguid>
+            <ModifiedDate>
+                13.12.2017 13:20:33
+            </ModifiedDate>
+        </BusinessEntity>
+        <EmailAddressID>
+            192
+        </EmailAddressID>
+        <EmailAddress1>
+            brenda0@adventure-works.com
+        </EmailAddress1>
+        <rowguid>
+            38cbe598-afba-406b-bc96-c8a998e06e61
+        </rowguid>
+        <ModifiedDate>
+            26.02.2009 0:00:00
+        </ModifiedDate>
+    </EmailAddress>
+    <PersonPhone>
+        null
+    </PersonPhone>
+    <Address>
+        <AddressID>
+            633
+        </AddressID>
+        <AddressLine1>
+            Medford Outlet Center
+        </AddressLine1>
+        <AddressLine2>
+            null
+        </AddressLine2>
+        <City>
+            Medford
+        </City>
+        <StateProvinceID>
+            36
+        </StateProvinceID>
+        <PostalCode>
+            55049
+        </PostalCode>
+        <rowguid>
+            7cda3069-3b49-4205-b853-40744d7d875f
+        </rowguid>
+        <ModifiedDate>
+            30.06.2012 0:00:00
+        </ModifiedDate>
+    </Address>
+</Contacts>

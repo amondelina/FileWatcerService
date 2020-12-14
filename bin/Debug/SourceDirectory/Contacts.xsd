@@ -1,0 +1,56 @@
+<xs:schema xmlns: xs = "http://www.w3.org/2001/XMLSchema " >    <xs:element>
+        <xs:complexType> 
+            <xs:sequence >         <xs:element>
+            <xs:complexType> 
+                <xs:sequence >             <xs:element>
+                <xs:element name="BusinessEntityID" type="xs: System.Int32 "/>
+                <xs:element name="rowguid" type="xs: System.Guid "/>
+                <xs:element name="ModifiedDate" type="xs: System.DateTime "/>
+            </xs:element>
+                </xs:sequence> 
+            </xs:complexType >
+            <xs:element name="EmailAddressID" type="xs: System.Int32 "/>
+            <xs:element name="EmailAddress1" type="xs: System.String "/>
+            <xs:element name="rowguid" type="xs: System.Guid "/>
+            <xs:element name="ModifiedDate" type="xs: System.DateTime "/>
+        </xs:element>
+            </xs:sequence> 
+        </xs:complexType >
+        <xs:complexType> 
+            <xs:sequence >         <xs:element>
+            <xs:complexType> 
+                <xs:sequence >             <xs:element>
+                <xs:element name="BusinessEntityID" type="xs: System.Int32 "/>
+                <xs:element name="rowguid" type="xs: System.Guid "/>
+                <xs:element name="ModifiedDate" type="xs: System.DateTime "/>
+            </xs:element>
+                </xs:sequence> 
+            </xs:complexType >
+            <xs:element name="PhoneNumber" type="xs: System.String "/>
+            <xs:complexType> 
+                <xs:sequence >             <xs:element>
+                <xs:element name="PhoneNumberTypeID" type="xs: System.Int32 "/>
+                <xs:element name="Name" type="xs: System.String "/>
+                <xs:element name="ModifiedDate" type="xs: System.DateTime "/>
+            </xs:element>
+                </xs:sequence> 
+            </xs:complexType >
+            <xs:element name="ModifiedDate" type="xs: System.DateTime "/>
+        </xs:element>
+            </xs:sequence> 
+        </xs:complexType >
+        <xs:complexType> 
+            <xs:sequence >         <xs:element>
+            <xs:element name="AddressID" type="xs: System.Int32 "/>
+            <xs:element name="AddressLine1" type="xs: System.String "/>
+            <xs:element name="AddressLine2" type="xs: System.String "/>
+            <xs:element name="City" type="xs: System.String "/>
+            <xs:element name="StateProvinceID" type="xs: System.Int32 "/>
+            <xs:element name="PostalCode" type="xs: System.String "/>
+            <xs:element name="rowguid" type="xs: System.Guid "/>
+            <xs:element name="ModifiedDate" type="xs: System.DateTime "/>
+        </xs:element>
+            </xs:sequence> 
+        </xs:complexType >
+    </xs:element>
+</xs:schema >

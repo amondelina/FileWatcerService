@@ -10,3 +10,7 @@ D:\code\c#\FileWatcherService\obj\Debug\FileWatcherService.pdb
 D:\code\c#\FileWatcherService\bin\Debug\Parser.dll
 D:\code\c#\FileWatcherService\bin\Debug\Parser.pdb
 D:\code\c#\FileWatcherService\obj\Debug\FileWatcherService.csproj.CopyComplete
+D:\code\c#\FileWatcherService\bin\Debug\EntityFramework.dll
+D:\code\c#\FileWatcherService\bin\Debug\EntityFramework.SqlServer.dll
+D:\code\c#\FileWatcherService\bin\Debug\EntityFramework.xml
+D:\code\c#\FileWatcherService\bin\Debug\EntityFramework.SqlServer.xml

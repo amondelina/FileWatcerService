@@ -16,12 +16,13 @@ namespace FileWatcherService
         FileSystemWatcher watcher;
         FileSystemWatcher jsonWatcher;
         FileSystemWatcher xmlWatcher;
+        OptionsManager manager;
         public Watcher()
         {
-
-            crypter = new Crypter(OptionsManager.GetOptions<CrypterOptions>() as CrypterOptions);
-            archiver = new Archiver(OptionsManager.GetOptions<ArchiverOptions>() as ArchiverOptions);
-            watcher = new FileSystemWatcher(OptionsManager.Options.SourcePath, "*.txt");
+            manager = new OptionsManager();
+            crypter = new Crypter(manager.GetOptions<CrypterOptions>() as CrypterOptions);
+            archiver = new Archiver(manager.GetOptions<ArchiverOptions>() as ArchiverOptions);
+            watcher = new FileSystemWatcher(manager.Options.SourcePath, "*.*");
 
             watcher.Created += OnChanged;
             watcher.Changed += OnChanged;
@@ -31,21 +32,21 @@ namespace FileWatcherService
             watcher.EnableRaisingEvents = true;
             watcher.IncludeSubdirectories = true;
 
-            Logger = OptionsManager.Logger;
+            Logger = manager.Logger;
             archiver.Options.TargetLogger = Logger;
             crypter.Options.TargetLogger = Logger;
 
-            jsonWatcher = new FileSystemWatcher(OptionsManager.Options.Path, "appsettings.json");
+            jsonWatcher = new FileSystemWatcher(manager.Options.Path, "appsettings.json");
             jsonWatcher.Created += OnOptionsFileChanged;
             jsonWatcher.Changed += OnOptionsFileChanged;
             jsonWatcher.Deleted += OnOptionsFileChanged;
             jsonWatcher.EnableRaisingEvents = true;
 
-            xmlWatcher = new FileSystemWatcher(OptionsManager.Options.Path, "config.xml");
+            xmlWatcher = new FileSystemWatcher(manager.Options.Path, "config.xml");
             xmlWatcher.Created += OnOptionsFileChanged;
             xmlWatcher.Changed += OnOptionsFileChanged;
             xmlWatcher.Deleted += OnOptionsFileChanged;
-            if (OptionsManager.Options != OptionsManager.JSONOptions)
+            if (manager.Options != manager.JSONOptions)
                 xmlWatcher.EnableRaisingEvents = true;
             else
                 xmlWatcher.EnableRaisingEvents = false;
@@ -71,14 +72,14 @@ namespace FileWatcherService
         {
             try
             {
-                OptionsManager.Update();
+                manager.Update();
             }
             catch(Exception)
             {
                 Logger.RecordEntry("Что-то не так с файлами конфигурации");
             }
             
-            if (OptionsManager.Options != OptionsManager.JSONOptions)
+            if (manager.Options != manager.JSONOptions)
                 xmlWatcher.EnableRaisingEvents = true;
             else
                 xmlWatcher.EnableRaisingEvents = false;
