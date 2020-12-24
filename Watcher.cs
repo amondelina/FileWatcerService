@@ -68,41 +68,51 @@ namespace FileWatcherService
             jsonWatcher.Dispose();
             watcher.Dispose();
         }
-        void OnOptionsFileChanged(object o, FileSystemEventArgs e)
+        async void OnOptionsFileChanged(object o, FileSystemEventArgs e)
         {
-            try
+            ThreadPool.QueueUserWorkItem((state) =>
             {
-                manager.Update();
-            }
-            catch(Exception)
-            {
-                Logger.RecordEntry("Что-то не так с файлами конфигурации");
-            }
+                try
+                {
+                    manager.Update();
+                }
+                catch (Exception)
+                {
+                   Logger.RecordEntry("Что-то не так с файлами конфигурации");
+                }
+
+                if (manager.Options != manager.JSONOptions)
+                    xmlWatcher.EnableRaisingEvents = true;
+                else
+                    xmlWatcher.EnableRaisingEvents = false;
+
+            }, null);
             
-            if (manager.Options != manager.JSONOptions)
-                xmlWatcher.EnableRaisingEvents = true;
-            else
-                xmlWatcher.EnableRaisingEvents = false;
         }
         void OnChanged(object o, FileSystemEventArgs e)
         {
             var type = e.ChangeType;
             var path = e.FullPath;
-            if (type == WatcherChangeTypes.Created)
-                Logger.RecordEntry($"Файл {path} был создан");
-            if (type == WatcherChangeTypes.Changed)
-                Logger.RecordEntry($"Файл {path} был изменен");
-            if (type == WatcherChangeTypes.Renamed)
-                Logger.RecordEntry($"Файл {path} был переименован");
-     
-            var encreptedPath = crypter.Encrypt(path);
-            var zipPath = archiver.Archive(encreptedPath);
-            var extractedPath = archiver.Extract(zipPath);
-            crypter.Decrypt(extractedPath);
+            ThreadPool.QueueUserWorkItem((state) => Processing(path, type), null);
         }
-        void OnDeleted(object o, FileSystemEventArgs e)
+
+        async Task Processing(string path, WatcherChangeTypes type)
         {
-            Logger.RecordEntry($"Файл {e.FullPath} был удален");
+            if (type == WatcherChangeTypes.Created)
+                await Logger.RecordEntry($"Файл {path} был создан");
+            if (type == WatcherChangeTypes.Changed)
+                await Logger.RecordEntry($"Файл {path} был изменен");
+            if (type == WatcherChangeTypes.Renamed)
+                await Logger.RecordEntry($"Файл {path} был переименован");
+
+            var encreptedPath = crypter.Encrypt(path);
+            var zipPath = archiver.Archive(encreptedPath.Result);
+            var extractedPath = archiver.Extract(zipPath.Result);
+            await crypter.Decrypt(extractedPath.Result);
+        }
+        async void OnDeleted(object o, FileSystemEventArgs e)
+        {
+            await Logger.RecordEntry($"Файл {e.FullPath} был удален");
         }
 
 

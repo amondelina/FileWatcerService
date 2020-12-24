@@ -7,6 +7,7 @@ using System.Linq;
 using System.ServiceProcess;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace FileWatcherService
 {
@@ -25,16 +26,16 @@ namespace FileWatcherService
            
         }
 
-        protected override void OnStart(string[] args)
+        protected override async void OnStart(string[] args)
         {
-            logger.RecordEntry("Cервис запущен");
+            await logger.RecordEntry("Cервис запущен");
             var thread = new Thread(new ThreadStart((watcher.Start)));
             thread.Start();
         }
 
-        protected override void OnStop()
+        protected override async void OnStop()
         {
-            logger.RecordEntry("Cервис остановлен");
+            await logger.RecordEntry("Cервис остановлен");
             watcher.Stop();
         }
 

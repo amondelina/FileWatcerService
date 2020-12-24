@@ -16,7 +16,7 @@ namespace FileWatcherService
         {
             this.Options = options;
         }
-        public string Encrypt(string path)
+        public async Task<string> Encrypt(string path)
         {
             
             var newPath = path.Replace(Options.SourcePath, Options.TargetPath);
@@ -38,18 +38,18 @@ namespace FileWatcherService
                     {
                         using (var sw = new StreamWriter(cs))
                         {
-                            sw.Write(text);
+                            await sw.WriteAsync(text);
                         }
                         File.WriteAllBytes(newPath, ms.ToArray());
                     }
                 }
             }
             
-            Options.TargetLogger.RecordEntry($"Файл {Path.GetFileName(path)} зашифрован");
+            await Options.TargetLogger.RecordEntry($"Файл {Path.GetFileName(path)} зашифрован");
             return newPath;
         }
 
-        public string Decrypt(string path)
+        public async Task<string> Decrypt(string path)
         {
             using (var aes = Aes.Create())
             {
@@ -67,7 +67,7 @@ namespace FileWatcherService
                     }
                 }
             }
-            Options.TargetLogger.RecordEntry($"Файл {Path.GetFileName(path)} расшифрован");
+            await Options.TargetLogger.RecordEntry($"Файл {Path.GetFileName(path)} расшифрован");
             return path;
         }
     }

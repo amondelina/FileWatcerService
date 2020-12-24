@@ -17,12 +17,12 @@ namespace FileWatcherService
             RecordEntry($"Файл лога {Path.GetFileName(Options.Path)} создан");
 
         }
-        public void RecordEntry(string entry)
+        public async Task RecordEntry(string entry)
         {
             using (var writer = new StreamWriter(Options.Path, true))
             {
-                writer.WriteLine($"{entry} {DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss")}");
-                writer.Flush();
+                await writer.WriteLineAsync($"{entry} {DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss")}");
+                await writer.FlushAsync();
             }
         }
     }

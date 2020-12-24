@@ -16,7 +16,7 @@ namespace FileWatcherService
         {
             Options = options;
         }
-        public string Archive(string path)
+        public async Task<string> Archive(string path)
         {
             var gzName = path + ".gz";
             var name = Path.GetFileName(path);
@@ -29,14 +29,14 @@ namespace FileWatcherService
                     using (var compressionStream = new GZipStream(targetStream, Options.CompressionLevel))
                     {
                         sourseStream.CopyTo(compressionStream);
-                        Options.TargetLogger.RecordEntry($"Файл {name} архивирован");
+                        await Options.TargetLogger.RecordEntry($"Файл {name} архивирован");
                     }
                 }
             }
             File.Delete(path);
             return gzName;         
         }
-        public string Extract(string path)
+        public async Task<string> Extract(string path)
         {
             var name = Path.GetFileNameWithoutExtension(path);
             var dir = Path.GetDirectoryName(path.Replace(Options.SourcePath, Options.TargetPath));
@@ -52,7 +52,7 @@ namespace FileWatcherService
                 {
                     using (var decompressionStream = new GZipStream(sourceStream, CompressionMode.Decompress))
                     {
-                        decompressionStream.CopyTo(targetStream);
+                        await decompressionStream.CopyToAsync(targetStream);
                     }
                 }
             }
